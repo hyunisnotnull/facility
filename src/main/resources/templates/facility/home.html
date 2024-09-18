@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:replace="~{/include/title.html::title}"></title>
+<link rel="stylesheet" th:href="@{/css/facility/facility.css}">
+<link rel="stylesheet" th:href="@{/css/common/common.css}">
+<link rel="stylesheet" th:href="@{/css/common/header_nav_footer.css}">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
+<script th:replace="~{/include/common_js.html::jquery_cdn}"></script>
+<script th:replace="~{/include/pagination_js.html::js}"></script>
+
+</head>
+<body>
+
+    <header th:replace="~{/include/header_nav_footer.html::header}"></header>
+    
+    <nav th:replace="~{/include/header_nav_footer.html::nav}"></nav>
+    <article th:replace="~{/include/header_nav_footer.html::article}"></article>
+    
+
+    <section>
+
+    	<div id="section_wrap">
+
+                    <!-- 필요한 컬럼 추가 -->
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+
+        
+
+     
+              <!-- 검색창 -->
+		<div class="search_form">
+            <form id="searchForm" action="" method="get">
+                <select name="type" id="searchType">
+                    <option value="all">전체</option>  
+                    <option value="area">지역</option>   
+                    <option value="service">서비스</option>   
+                    <option value="location">장소</option>            
+                </select>
+                <input type="text" name="keyword" id="searchKeyword" placeholder="검색어 입력">
+                <button type="submit">검색</button>
+            </form>
+        </div>
+    	
+  		<div class="result_count">
+           	<img src="https://yeyak.seoul.go.kr/common/img/ko/bullet_1.png" width="20px"> 총<span></span>건
+        </div>
+       
+    	
+     <div class="s_result">
+  	    
+
+               <!-- 결과물 1개 출력  -->
+<!--                 <li class="result_wrap">
+                   <div class="img_box">
+                       <img class="thumb" src="https://yeyak.seoul.go.kr/cmsdata/web_upload/svc/20240222/1708585054845G6MKD7YX0QIQH538QU9PKV9QF_IM02.jpg" alt=""> <br>
+                       <div class="ib_top">
+                         <span class="status1">접수중</span>
+                         <span class="type1">유료</span>
+                       </div>
+                  </div>  
+                   
+                  <div class="text_wrap">
+                    <p>축구장</p>
+                    <h3>월드컵 보조 경기장</h3><br>
+                    <ul>
+                        <li><img src="https://yeyak.seoul.go.kr/common/img/ko/icon_place.png" width="16px" alt=""> <span> 장소명 :</span> 보조구장(마포구)</li> 
+                        <li></li><img src="https://yeyak.seoul.go.kr/common/img/ko/icon_user.png" width="16px" alt=""> <span> 이용대상 :</span> 제한없음</li> 
+                        <li></li><img src="https://yeyak.seoul.go.kr/common/img/ko/icon_date1.png" width="16px" alt=""> <span> 접수기간 :</span> 2024.08.24 ~ 2024.09.18 </li> 
+                        <li></li><img src="https://yeyak.seoul.go.kr/common/img/ko/icon_date2.png" width="16px" alt=""> <span> 이용기간 :</span> 2024.03.04 ~ 2024.09.30 </li> 
+                    </ul> 
+                    <br>
+                    <button>상세보기 + </button><br>
+                   </div>  
+                </li> -->
+             <!-- 결과물 1개 출력 종료  -->
+
+
+           
+
+
+          </div>   
+        <div id="pagination" class="pagination">
+    
+		</div>
+        
+    </section>
+    
+    <footer th:replace="~{/include/header_nav_footer.html::footer}"></footer>
+
+</body>
+</html>

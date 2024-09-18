@@ -1,0 +1,80 @@
+<script th:fragment="js">
+
+$(document).ready(function() {
+    console.log('DOCUMENT READY!!');
+
+    // 초기 페이지 로드
+    loadPage(1);
+
+    // 페이지네이션 버튼 클릭 시 이벤트 처리
+    $(document).on('click', '.pagination-button', function() {
+        const page = $(this).data('page');
+        loadPage(page);
+    });
+});
+
+// 페이지 로드 함수
+function loadPage(pageNumber) {
+    console.log(`loadPage(${pageNumber})`);
+
+    $.ajax({
+        url: '/facility/page',
+        method: 'GET',
+        data: {
+            page: pageNumber,
+            size: 6 // 페이지당 아이템 수
+        },
+        dataType: 'json',
+        success: function(data) {
+            console.log('Data received:', data);
+
+            // 시설 목록 테이블 업데이트
+            const tbody = $('.facility-table tbody');
+            tbody.empty(); // 기존 내용 삭제
+
+            data.items.forEach(item => {
+                tbody.append(`
+                    <tr>
+                        <td><a href="${item.svcurl}" target="_blank">${item.placenm}</a></td>
+                        <td><a href="${item.svcurl}" target="_blank"><img class="facility-image" src="${item.IMGURL}" alt="시설 이미지"></a></td>
+                        <td>${item.telno || '정보 없음'}</td>
+                    </tr>
+                `);
+            });
+
+            // 페이지네이션 업데이트
+            updatePagination(data.currentPage, data.totalPages);
+        },
+        error: function() {
+            console.log('AJAX request failed');
+        }
+    });
+}
+
+// 페이지네이션 업데이트 함수
+function updatePagination(currentPage, totalPages) {
+    console.log('updatePagination()');
+
+    const paginationDiv = $('#pagination');
+    let paginationHTML = '';
+
+    // 이전 버튼
+    if (currentPage > 1) {
+        paginationHTML += `<button class="pagination-button" data-page="${currentPage - 1}">Previous</button>`;
+    }
+
+    // 페이지 번호 버튼
+    for (let i = 1; i <= totalPages; i++) {
+        paginationHTML += `<button class="pagination-button" data-page="${i}">${i}</button>`;
+    }
+
+    // 다음 버튼
+    if (currentPage < totalPages) {
+        paginationHTML += `<button class="pagination-button" data-page="${currentPage + 1}">Next</button>`;
+    }
+
+    paginationDiv.html(paginationHTML);
+}
+
+
+</script>

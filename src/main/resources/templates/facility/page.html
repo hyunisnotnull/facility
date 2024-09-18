@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:replace="~{/include/title.html::title}"></title>
+<link rel="stylesheet" th:href="@{/css/facility/facility.css}">
+<link rel="stylesheet" th:href="@{/css/common/common.css}">
+<link rel="stylesheet" th:href="@{/css/common/header_nav_footer.css}">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
+<script th:replace="~{/include/common_js.html::jquery_cdn}"></script>
+<script th:replace="~{/include/pagenation_js.html::js}"></script>
+
+</head>
+<body>
+
+    <header th:replace="~{/include/header_nav_footer.html::header}"></header>
+    
+    <nav th:replace="~{/include/header_nav_footer.html::nav}"></nav>
+
+    <section>
+        <div class="section_wrap">
+            <h3>서울시 공공 체육시설</h3>
+        </div>
+        <table class="facility-table">
+            <thead>
+                <tr>
+                    <th>시설명</th>
+                    <th>시설View</th>
+                    <th>시설 연락처</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Facility items will be loaded here by JavaScript -->
+            </tbody>
+        </table>
+        
+        <div id="pagination" class="pagination">
+            <!-- Pagination buttons will be loaded here by JavaScript -->
+        </div>
+    </section>
+    
+    <footer th:replace="~{/include/header_nav_footer.html::footer}"></footer>
+
+</body>
+</html>

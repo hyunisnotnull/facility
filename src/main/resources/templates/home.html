@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<title th:replace="~{/include/title.html::title}"></title>
+
+<link rel="stylesheet" th:href="@{/css/common/common.css}">
+<link rel="stylesheet" th:href="@{/css/common/header_nav_footer.css}">
+<link rel="stylesheet" th:href="@{/css/common/home.css}">
+
+<script th:replace="~{/include/common_js.html::jquery_cdn}"></script>
+<script th:replace="~{/include/home_js.html::js}"></script>
+
+</head>
+<body>
+
+<header th:replace="~{/include/header_nav_footer.html::header}"></header>
+<nav th:replace="~{/include/header_nav_footer.html::nav}"></nav>
+<article th:replace="~{/include/header_nav_footer.html::article}"></article>
+
+<section id="home_section"> 
+    <div id="section_wrap">
+        <div class="mention"> 
+            <img src="http://ecobus.co.kr/wp-content/uploads/2024project/mainbanner.png" alt="">
+        </div>
+        
+        <div class="search_form">
+            <form action="" method="get" name="s_form" id="s_form">
+                <h3>※ 빠른 예약하기</h3> <br>
+                <select name="area" id="AREANM" class="area">
+                    <!-- 옵션이 동적으로 추가됨 -->
+                </select>
+                <select name="category" id="MINCLASSNM">
+                    <!-- 옵션이 동적으로 추가됨 -->
+                </select>
+                <select name="result" id="SVCNM">
+                    <!-- 옵션이 동적으로 추가됨 -->
+                </select>
+                <input type="button" id="quick_btn" value="예약하기">
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer th:replace="~{/include/header_nav_footer.html::footer}"></footer>
+
+</body>
+</html>
